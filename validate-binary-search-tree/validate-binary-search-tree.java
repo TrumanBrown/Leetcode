@@ -14,17 +14,17 @@
  * }
  */
 class Solution {
-    private boolean isBSTHelper(TreeNode node, long lower_limit, long upper_limit) {
+    private boolean isBSTHelper(TreeNode node, Integer min, Integer max) {
         if (node == null) {
             return true;
         }
-        if (node.val <= lower_limit || upper_limit <= node.val) {
+        else if (min !=null && node.val <= min || max!=null && node.val >= max) {
             return false;
         }
-        return isBSTHelper(node.left, lower_limit, node.val) && isBSTHelper(node.right, node.val, upper_limit);
+        return isBSTHelper(node.left, min, node.val) && isBSTHelper(node.right, node.val, max);
     }
     public boolean isValidBST(TreeNode root) {
-        return isBSTHelper(root, Long.MIN_VALUE, Long.MAX_VALUE);
-    }
+        return isBSTHelper(root, null, null);
+    }
    
 }
