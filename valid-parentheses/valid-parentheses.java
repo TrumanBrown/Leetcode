@@ -11,12 +11,12 @@ class Solution {
             {
                 stackCount.push(s.charAt(i));
             }
+            else if(stackCount.empty())
+            {
+                return false;
+            }
             else if(s.charAt(i)==')')
             {
-                if(stackCount.empty())
-                {
-                    return false;
-                }
                 char top=stackCount.pop();
                 if(top!='(')
                 {
@@ -25,10 +25,6 @@ class Solution {
             }
             else if(s.charAt(i)==']')
             {
-                if(stackCount.empty())
-                {
-                    return false;
-                }
                 char top=stackCount.pop();
                 if(top!='[')
                 {
@@ -37,10 +33,6 @@ class Solution {
             }
             else if(s.charAt(i)=='}')
             {
-                if(stackCount.empty())
-                {
-                    return false;
-                }
                 char top=stackCount.pop();
                 if(top!='{')
                 {
